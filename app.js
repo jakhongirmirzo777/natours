@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+const compression = require('compression');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
@@ -50,6 +51,8 @@ app.use(
     ],
   })
 );
+
+app.use(compression());
 
 // Serving static files
 app.use(express.json());
